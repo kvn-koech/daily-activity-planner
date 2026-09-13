@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "lucide-react": "^1.45.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.6.0",
+    "css": "^3.0.0",
+    "postcss": "^8.5.28",
+    "tailwind": "^4.0.0"
+  }
+}
