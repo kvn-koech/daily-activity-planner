@@ -107,8 +107,12 @@ export default function App() {
     : 0;
 
   return (
-    <div className="w-full flex justify-center py-10 px-4 sm:px-6">
-      <div className="w-full max-w-3xl space-y-6">
+    <div className="w-full min-h-screen flex justify-center py-12 px-4 sm:px-6 relative overflow-hidden">
+      {/* Decorative background blur elements */}
+      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-500/20 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/20 rounded-full blur-[120px] pointer-events-none"></div>
+      
+      <div className="w-full max-w-3xl space-y-8 relative z-10">
         
         {/* Navigation & Brand Header */}
         <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-800/80 pb-6">
@@ -153,7 +157,7 @@ export default function App() {
         </header>
 
         {/* Progress Metric Bar */}
-        <div className="bg-slate-900/60 border border-slate-800/80 backdrop-blur-sm p-4 rounded-2xl flex items-center justify-between gap-6 shadow-sm">
+        <div className="glass-panel p-5 rounded-3xl flex items-center justify-between gap-6">
           <div className="flex items-center gap-4">
             <div className="text-3xl font-bold text-white tracking-tight">
               {progress}%
@@ -176,7 +180,7 @@ export default function App() {
         </div>
 
         {/* Task Form */}
-        <form onSubmit={handleAddTask} className="bg-slate-900/70 border border-slate-800/90 rounded-2xl p-4 sm:p-5 backdrop-blur-md space-y-4 shadow-sm">
+        <form onSubmit={handleAddTask} className="glass-panel rounded-3xl p-5 sm:p-6 space-y-5 transition-all duration-300 focus-within:border-indigo-500/30">
           <div className="flex gap-2">
             <input
               type="text"
@@ -256,10 +260,10 @@ export default function App() {
               return (
                 <div
                   key={task.id}
-                  className={`group flex items-center justify-between p-3.5 rounded-xl border transition-all duration-200 ${
+                  className={`group flex items-center justify-between p-4 rounded-2xl transition-all duration-300 ${
                     task.completed 
-                      ? 'bg-slate-900/30 border-slate-800/40 opacity-50' 
-                      : 'bg-slate-900/70 border-slate-800/80 hover:border-slate-700 hover:bg-slate-900 shadow-sm'
+                      ? 'bg-slate-900/20 border border-white/5 opacity-50 grayscale-[50%]' 
+                      : 'glass-card hover:-translate-y-0.5'
                   }`}
                 >
                   <div className="flex items-center gap-3.5 flex-1 min-w-0">
